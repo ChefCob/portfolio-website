@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfbfd;
+  --foreground: #1d1d1f;
+  --muted: #6e6e73;
+  --surface: #f5f5f7;
+  --link: #0066cc;
+  --link-hover: #0077ed;
+  --glass: rgba(251, 251, 253, 0.72);
+  --border: rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-link: var(--link);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #0071e333;
+  color: var(--foreground);
+}
+
+.glass-nav {
+  background: var(--glass);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.apple-link {
+  color: var(--link);
+  transition: color 0.2s ease;
+}
+
+.apple-link:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero {
+  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-hero-delay-1 {
+  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+.animate-hero-delay-2 {
+  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-hero-delay-3 {
+  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.45s forwards;
+  opacity: 0;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
