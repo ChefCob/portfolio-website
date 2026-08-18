@@ -4,33 +4,31 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/[0.08] bg-surface px-6 py-5">
-      <div className="mx-auto flex max-w-[980px] flex-col items-center justify-between gap-3 sm:flex-row">
-        <p className="text-[12px] text-muted">
-          Copyright © {year} {profile.name}. All rights reserved.
+    <footer className="border-t border-white/[0.08] bg-background px-6 py-8">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row">
+        <p className="text-[13px] text-muted font-mono">
+          © {year} {profile.name}. CareerOS Presentation & Conversion Layer.
         </p>
-        <div className="flex gap-6">
+        <div className="flex items-center gap-6">
           <a
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[12px] text-muted transition-opacity hover:opacity-70"
+            className="text-[13px] text-muted transition-colors hover:text-foreground"
           >
             LinkedIn
           </a>
           <a
-            href={profile.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[12px] text-muted transition-opacity hover:opacity-70"
-          >
-            GitHub
-          </a>
-          <a
             href={`mailto:${profile.email}`}
-            className="text-[12px] text-muted transition-opacity hover:opacity-70"
+            className="text-[13px] text-muted transition-colors hover:text-foreground"
           >
             Email
+          </a>
+          <a
+            href="#projects"
+            className="text-[13px] text-muted transition-colors hover:text-foreground"
+          >
+            Projects
           </a>
         </div>
       </div>
