@@ -23,9 +23,8 @@ export const profile = {
     },
   ],
   links: {
-    github: "https://github.com/saptarshi",
-    linkedin: "https://linkedin.com/in/saptarshi",
-    resume: "/resume.pdf",
+    github: "https://github.com/ChefCob",
+    linkedin: "https://www.linkedin.com/in/saptarshi-das-vitbrown/",
   },
 } as const;
 

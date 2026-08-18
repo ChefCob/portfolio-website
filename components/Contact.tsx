@@ -35,13 +35,6 @@ export function Contact() {
               >
                 LinkedIn ↗
               </a>
-              <a
-                href={profile.links.resume}
-                download
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#06070a] px-6 py-3 text-[14px] font-semibold text-foreground backdrop-blur-md transition-all hover:border-rose-500/40 hover:bg-white/[0.04]"
-              >
-                Download Resume
-              </a>
             </div>
           </div>
         </Reveal>
