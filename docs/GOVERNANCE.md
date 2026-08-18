@@ -1,37 +1,13 @@
-# CareerOS Agent Operating Contract (Local Baseline)
-
-**Scope:** `portfolio-website` & CareerOS Multi-Agent Runtime  
-**Classification:** Normative Agent Governance  
-**Governance Invariant:** Single Source of Truth ($\text{Repository Evidence} \longrightarrow \text{Canonical Registry} \longrightarrow \text{Detailed Record} \longrightarrow \text{Presentation Layer}$)  
-
----
+# CareerOS Multi-Agent Governance Framework
 
 ## 1. Non-Negotiable Agent Invariants
+AI agents operating within the CareerOS workspace remain strictly non-authoritative:
+1. **No Self-Approval:** Agents may analyze, measure, draft, and test, but cannot approve their own work or authorize releases.
+2. **Zero-Hallucination Evidence Rule:** Public technical claims require content-hashed source code or derivative benchmark artifacts.
+3. **Maturity Boundaries:** Prototype implementations and planned roadmap features are explicitly distinguished from verified production capabilities.
+4. **Defensive Testing Only:** All test routines are defensive, localized, and executed in isolated container sandboxes without external network calls (`--network none`).
 
-1. **AI Agents Remain Strictly Non-Authoritative:**
-   - Agents may inspect, analyze, draft, test, measure, and recommend.
-   - Agents **MUST NOT**:
-     - Approve their own work
-     - Accept security risks or suppress threat findings
-     - Approve evidence artifacts or claim upgrades
-     - Authorize software releases
-     - Mutate normative governance (`AGENTS.md`, `SEOM/`, `docs/GOVERNANCE.md`)
-2. **Zero-Hallucination Evidence Rule:**
-   - $\text{NO PHYSICAL SOURCE / EVIDENCE} \equiv \text{NO PUBLIC TECHNICAL CLAIM}$.
-   - Every claim must resolve unambiguously to an AST key symbol, source path, and content-hashed evidence artifact.
-3. **Maturity & Claim Boundaries:**
-   - $\text{documented\_only} \neq \text{verified\_implemented}$
-   - $\text{planned\_roadmap} \neq \text{verified\_implemented}$
-   - $\text{prototype} \neq \text{production}$
-   - $\text{observation} \neq \text{measured}$
-4. **Safety & Defensive Testing Boundary:**
-   - All testing must remain strictly local, defensive, and isolated.
-   - Zero creation, execution, distribution, or persistence of offensive tooling, malware, or credential stealers.
-   - Real credentials, live tokens, or external targets are strictly prohibited.
-
----
-
-## 2. Agent Registry & Permission Matrix
+## 2. Agent Permission Matrix
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -55,5 +31,3 @@
 │              │ (Root Admin)     │ (Unrestricted│ (Unrestricted│ (Sole Auth) │
 └──────────────┴──────────────────┴──────────────┴──────────────┴─────────────┘
 ```
-
-*For complete governance specifications, refer to `docs/GOVERNANCE.md`.*

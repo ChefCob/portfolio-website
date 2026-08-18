@@ -6,18 +6,18 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
-    category: "Offensive Security",
-    description: "Authorized testing tools and techniques.",
-    items: ["Burp Suite", "Metasploit", "Nmap", "Wireshark"],
+    category: "Network & Wireless Security",
+    description: "Protocol dissection, packet parsing, and traffic analysis.",
+    items: ["802.11 Protocol Analysis", "Scapy", "PCAP Parsing", "Wireshark"],
   },
   {
-    category: "Web Security",
-    description: "Application-layer vulnerability assessment.",
-    items: ["SQL Injection", "XSS / CSRF", "SSRF / IDOR", "API Testing"],
+    category: "Application & Cryptography",
+    description: "Tamper resistance, payload encryption, and smart contract verification.",
+    items: ["SHA-256 Chaining", "Fernet / AES Encryption", "REST APIs", "Solidity"],
   },
   {
-    category: "Scripting & Ops",
-    description: "Automation, environments, and workflows.",
-    items: ["Python", "Bash", "Kali Linux", "Docker"],
+    category: "Embedded & Systems Ops",
+    description: "Resource-constrained hardware telemetry and environments.",
+    items: ["MicroPython", "Raspberry Pi Pico W", "Linux / POSIX", "I2C Interfacing"],
   },
 ];

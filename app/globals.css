@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfbfd;
-  --foreground: #1d1d1f;
-  --muted: #6e6e73;
-  --surface: #f5f5f7;
-  --link: #0066cc;
-  --link-hover: #0077ed;
-  --glass: rgba(251, 251, 253, 0.72);
-  --border: rgba(0, 0, 0, 0.08);
+  --background: #030305;
+  --foreground: #f4f5f8;
+  --muted: #9ca3af;
+  --surface: #08090d;
+  --surface-hover: #0f1118;
+  --surface-glass: rgba(255, 255, 255, 0.025);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(225, 29, 72, 0.45);
+  --link: #fb7185;
+  --link-hover: #fda4af;
+  --laser-crimson: #e11d48;
+  --laser-amber: #f59e0b;
+  --laser-glow: rgba(225, 29, 72, 0.6);
 }
 
 @theme inline {
@@ -16,94 +21,111 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
   --color-link: var(--link);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  letter-spacing: -0.012em;
 }
 
-::selection {
-  background: #0071e333;
-  color: var(--foreground);
+h1, h2, h3, .font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  letter-spacing: -0.038em;
 }
 
-.glass-nav {
-  background: var(--glass);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+/* Stealth Frosted Glass Cards */
+.stealth-card {
+  background: rgba(10, 11, 16, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.apple-link {
-  color: var(--link);
-  transition: color 0.2s ease;
+.stealth-card:hover {
+  background: rgba(15, 17, 24, 0.85);
+  border-color: rgba(225, 29, 72, 0.35);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(225, 29, 72, 0.15);
 }
 
-.apple-link:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
+/* Stealth Navbar Pill */
+.stealth-pill {
+  background: rgba(8, 9, 13, 0.8);
+  backdrop-filter: saturate(200%) blur(24px);
+  -webkit-backdrop-filter: saturate(200%) blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
+/* Laser Stream Animation */
+@keyframes laserFlow {
+  0% {
+    stroke-dashoffset: 40;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes hero-fade {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-hero {
-  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
-.animate-hero-delay-1 {
-  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s forwards;
-  opacity: 0;
-}
-
-.animate-hero-delay-2 {
-  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s forwards;
-  opacity: 0;
-}
-
-.animate-hero-delay-3 {
-  animation: hero-fade 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.45s forwards;
-  opacity: 0;
-}
-
-@keyframes float {
-  0%,
   100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
+    stroke-dashoffset: 0;
   }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.animate-laser-stream {
+  stroke-dasharray: 6, 8;
+  animation: laserFlow 0.75s linear infinite;
+}
+
+/* Subtle Hero Entrance */
+@keyframes stealthFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-stealth-1 {
+  animation: stealthFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-stealth-2 {
+  animation: stealthFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+  opacity: 0;
+}
+
+.animate-stealth-3 {
+  animation: stealthFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+  opacity: 0;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030305;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #181a24;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #282c3c;
 }
