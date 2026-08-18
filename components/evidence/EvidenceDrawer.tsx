@@ -262,7 +262,7 @@ export function EvidenceDrawer({ artifact, onClose }: EvidenceDrawerProps) {
                     download
                     className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-4 py-2 text-[13px] font-medium text-foreground hover:bg-rose-500/10 hover:border-rose-500/30 hover:text-rose-300 transition-colors"
                   >
-                    ⬇ Download Raw .pcap Benchmark File
+                    ⬇ Download Sanitized Derivative Asset
                   </a>
                 </div>
               )}
